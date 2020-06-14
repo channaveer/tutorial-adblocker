@@ -21,5 +21,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fuckadblock/3.2.1/fuckadblock.min.js" integrity="sha256-3zU5Lr4nIt3K/BgGOQMduajtZcPV9elIM/23RDXRp3o=" crossorigin="anonymous"></script>
 
     <script src="./assets/js/checkads.js"></script>
+    <script src="{{ asset('js/ads.js?cb='. env('CB_VERSION')) }}"></script>
+    <script>
+        function adDetected() {
+            const checkad = document.getElementById('ad-content');
+            checkad.style.display = 'block';
+        }
+        if( window.canRunAds === undefined ){
+            adDetected();
+        }
+    </script>
 </body>
 </html>
